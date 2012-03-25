@@ -84,7 +84,7 @@ public class BugzillaSession {
 	        params.put("ids", argIds);
 	        HashMap<String, Object> result = this.execute("Bug.get_bugs", params);
 	        Object[] bugs = (Object[])result.get("bugs");
-	        LOGGER.fine("get_bugs result has " + bugs.length);
+	        LOGGER.info("get_bugs result has " + bugs.length);
 	        for(Object bug : bugs) {
 	        	HashMap<String, Object> bugMap = (HashMap<String, Object>)bug;
 	        	Integer id = (Integer)bugMap.get("id");

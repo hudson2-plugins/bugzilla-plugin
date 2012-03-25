@@ -4,4 +4,27 @@
   <br>To match any number, use: <b><tt>[0-9]+</tt></b>
   <br>The bugzilla style of matching bug + number would be: <b><tt>bug ([0-9]+)</tt></b>
   Note that the parens in this example are used to identify the bug number.
+  <br><br>Here are two examples from the hudson community: 
+ <br>
+ <br>Example 1:
+ <br><b><tt>(?<=[([Bb]ug)([Ii]ssue)(SCR)(scr)]:?\s?#?)\d+</tt></b>
+ <br>The above regex example matches only the numbers in strings like the following:
+ <br> <b><tt>    Bug #12345
+		<br>	 Issue: 12345
+	    <br>	 SCR 12345
+        <br>     Bug 12345
+        <br>     bug 12345
+        <br>     bug #12345
+        <br>     scr 12345
+        <br>     scr12345
+        <br>     scr 123456</tt></b>
+<br>The regex does NOT match just any number. The number must be preceded by something like "bug", "issue" or "SCR".             
+<br>
+<br>Example 2:
+<br><b><tt>(?<=[Bb]ug [\d, ]{0,64})(\d+)</tt></b>
+ <br>It will match and link multiple bug IDs for example:
+<br> <b><tt>Bug 12
+<br>		Bug 12,30
+<br>		Bug 12 30 54
+<br>		Bug 12, 30, 54, 81</tt></b>
 </div>
